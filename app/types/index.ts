@@ -7,6 +7,8 @@ export interface CustomButtonProps {
      MouseEventHandler<HTMLButtonElement>;
      btnType?:"button" | "submit";
      textStyles?: string;
+ 
+  
      rightIcon?: string;
      isDisabled?: boolean; 
 }
