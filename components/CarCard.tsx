@@ -4,13 +4,14 @@ import Image from "next/image";
 import { carProps } from "@/app/types";
 import CustomButton from "./CustomButton";
 import { calculateCarRent } from "@/utils";
+import CarDetails from "./CarDetails";
 interface carCardProps {
   car: carProps;
 }
 const CarCard = ({ car }: carCardProps) => {
   const { city_mpg, year, make, model, transmission, drive } = car;
 
-  const [IsOpen, setisOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const carRent = calculateCarRent(city_mpg, year);
   return (
     <div className="car-card group ">
@@ -64,10 +65,15 @@ const CarCard = ({ car }: carCardProps) => {
             containerstyles="w-full py-[16px] rounded-full bg-primary-blue"
             textStyles="text-white text-[14px] leading-[17px] font-bold"
             rightIcon="/right-arrow.svg"
-            // handleClick={() => setIsOpen(true)}
+            handleClick={() => setIsOpen(true)}
           />
         </div>
       </div>
+      <CarDetails
+        isOpen={isOpen}
+        closeModal={() => setIsOpen(false)}
+        car={car}
+      />
     </div>
   );
 };
