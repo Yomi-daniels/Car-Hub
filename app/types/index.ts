@@ -24,16 +24,17 @@ export interface FilterProps {
 }
 
 export interface HomeProps {
-     searchParams: {
-       manufacturer?: string;
-       year?: number;
-       fuel?: string;
-       limit?: number;
-       model?: string;
-     };
-   }
+  searchParams: {
+    manufacturer?: string;
+    year?: number;
+    fuel?: string;
+    limit?: number;
+    model?: string;
+  };
+}
 
 export interface CarCardProps {
+  key?: string; // Useful for React lists
   model: string;
   make: string;
   mpg: number;
@@ -68,7 +69,7 @@ export interface ShowMoreProps {
   isNext: boolean;
 }
 
-export interface SearchManuFacturerProps {
+export interface SearchManufacturerProps {
   manufacturer: string;
-  setManuFacturer: (manufacturer: string) => void;
+  setManufacturer: (manufacturer: string) => void; // Fixed naming
 }
