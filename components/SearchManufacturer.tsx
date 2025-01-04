@@ -1,6 +1,6 @@
 "use client";
 
-import { searchManufacturerProps } from "@/app/types";
+import { SearchManuFacturerProps } from "@/app/types";
 import {
   Combobox,
   ComboboxButton,
@@ -15,8 +15,8 @@ import { manufacturers } from "@/constants";
 
 const SearchManufacturer = ({
   manufacturer,
-  setManufacturer,
-}: searchManufacturerProps) => {
+  setManuFacturer,
+}: SearchManuFacturerProps) => {
   const [query, setQuery] = useState("");
 
   const filteredManufacturers =
@@ -28,7 +28,7 @@ const SearchManufacturer = ({
 
   return (
     <div className="search-manufacturer">
-      <Combobox value={manufacturer} onChange={setManufacturer}>
+      <Combobox value={manufacturer} onChange={setManuFacturer}>
         <div className="relative w-full">
           {/* Combobox Button */}
           <ComboboxButton className="absolute top-[14px] left-[10px]">

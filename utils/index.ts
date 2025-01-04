@@ -1,4 +1,4 @@
-import { carProps, FilterProps } from "@/app/types";
+import { CarProps, FilterProps } from "@/app/types";
 import { manufacturers } from "@/constants";
 
 
@@ -31,7 +31,7 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
   
     return rentalRatePerDay.toFixed(0);
   };
-  export const generateCarImageUrl = (car: carProps, angle?: string) => {
+  export const generateCarImageUrl = (car: CarProps, angle?: string) => {
     const url = new URL("https://cdn.imagin.studio/getimage");
     const { make, model, year } = car;
   

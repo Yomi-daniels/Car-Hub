@@ -3,7 +3,7 @@ import { CustomButtonProps } from "@/app/types";
 import Image from "next/image";
 const CustomButton = ({
   title,
-  containerstyles,
+  containerStyles,
   handleClick,
   btnType,
   textStyles,
@@ -13,7 +13,7 @@ const CustomButton = ({
     <button
       disabled={false}
       type={btnType || "button"}
-      className={`custom-btn ${containerstyles}`}
+      className={`custom-btn ${containerStyles}`}
       onClick={handleClick}
     >
       <span className={`flex-1 ${textStyles}`}>{title}</span>
