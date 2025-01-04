@@ -2,11 +2,20 @@ import CarCard from "@/components/CarCard";
 import CustomFilter from "@/components/CustomFilter";
 import Hero from "@/components/Hero";
 import SearchBar from "@/components/SearchBar";
+import ShowMore from "@/components/ShowMore";
+import { fuels, manufacturers, yearsOfProduction } from "@/constants";
 import { fetchCars } from "@/utils";
 import Image from "next/image";
+import { title } from "process";
 
-export default async function Home() {
-  const allCars = await fetchCars();
+export default async function Home({ searchParams }) {
+  const allCars = await fetchCars({
+    manufacturer: searchParams.manufacturer || "",
+    year: searchParams.year || "2023",
+    fuel: searchParams.fuel || "",
+    limit: searchParams.limit || 10,
+    model: searchParams.model || "",
+  });
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
   return (
     <main className="overflow-hidden">
@@ -19,8 +28,8 @@ export default async function Home() {
         <div className="home__filters">
           <SearchBar />
           <div className="home__filter-container">
-            {/* <CustomFilter title="fuel" />
-            <CustomFilter title="year" /> */}
+            <CustomFilter options={fuels} title="fuel" />
+            <CustomFilter options={yearsOfProduction} title="year" />
           </div>
         </div>
         {!isDataEmpty ? (
@@ -30,6 +39,7 @@ export default async function Home() {
                 <CarCard car={car} />
               ))}
             </div>
+            <ShowMore />
           </section>
         ) : (
           <div className="home__error-container">

@@ -11,9 +11,7 @@ module.exports = {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
       },
-      borderRadius: {
-        'custom': '0.5rem 0.5rem 0 0',
-      },
+     
       colors: {
         "black-100": "#2B2C35",
         "primary-blue": {
