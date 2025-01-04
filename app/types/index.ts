@@ -24,8 +24,14 @@ export interface FilterProps {
 }
 
 export interface HomeProps {
-  searchParams: FilterProps;
-}
+     searchParams: {
+       manufacturer?: string;
+       year?: number;
+       fuel?: string;
+       limit?: number;
+       model?: string;
+     };
+   }
 
 export interface CarCardProps {
   model: string;
